@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rhythm Game Controller Redirect</title>
+    <script type="text/javascript">
+      // Single Page App redirect hack for GitHub Pages
+      // Captures the current path/query and redirects it safely into the hash router
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      
+      // Reconstruct the URL into a hash format so index.html reads it cleanly
+      var redirectUrl = l.protocol + '//' + l.host + '/' + 
+        (l.pathname.slice(1).split('/').slice(0, pathSegmentsToKeep).join('/') + '/') +
+        '#/' + l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') + 
+        (l.search ? '&' + l.search.slice(1) : '') + 
+        l.hash;
+
+      window.location.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
